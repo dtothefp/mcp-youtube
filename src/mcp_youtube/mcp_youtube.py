@@ -33,7 +33,7 @@ def extract_video_id(url: str) -> str:
 def get_transcript(video_id: str, with_timestamps: bool = False, language: str = "en") -> str:
     """Get transcript for a video ID and format it as readable text."""
     transcript: Transcript = None
-    available_transcripts = YouTubeTranscriptApi.list_transcripts(video_id)
+    available_transcripts = YouTubeTranscriptApi.list(video_id)
     try:
         transcript = available_transcripts.find_transcript([language])
     except NoTranscriptFound:
